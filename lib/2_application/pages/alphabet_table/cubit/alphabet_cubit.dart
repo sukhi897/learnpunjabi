@@ -11,12 +11,11 @@ const cacheFailureMessage = '?!';
 
 class AlphabetCubit extends Cubit<AlphabetState> {
   AlphabetUseCases alphabetUseCases;
-  int number = 1;
   AlphabetCubit({required this.alphabetUseCases}) : super(AlphabetInitial());
 
-  void getCurrentAlphabet() {
+  void getAlphabetByIndex(int index) {
     emit(const AlphabetStateLoading());
-    final failureOrAlphabet = alphabetUseCases.getAlphabet(number);
+    final failureOrAlphabet = alphabetUseCases.getAlphabet(index);
     failureOrAlphabet.fold(
         (l) => emit(AlphabetStateError(message: _mapFailureToMessage(l))),
         (r) => emit(AlphabetStateLoaded(alphabet: r.character)));

@@ -51,8 +51,13 @@ dev_dependencies:
 flutter:
   uses-material-design: true
   assets:
+    - assets/images/
     - assets/images/alphabetImages/
+    - assets/images/kannaImages/
     - assets/audio/alphabetSounds/
+    - assets/audio/kannaSounds/
+    - assets/audio/japjiSahibPauri1/
+    - assets/audio/myHandsAudio/
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware
