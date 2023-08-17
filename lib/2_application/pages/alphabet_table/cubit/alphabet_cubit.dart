@@ -1,13 +1,14 @@
 import 'package:equatable/equatable.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:learnpunjabi/1_domain/entities/alphabet_entity.dart';
 import 'package:learnpunjabi/1_domain/failures/failures.dart';
 import 'package:learnpunjabi/1_domain/usecases/alphabet_usecases.dart';
 
 part 'alphabet_state.dart';
 
-const generalFailureMessage = '?!';
-const serverFailureMessage = '?!';
-const cacheFailureMessage = '?!';
+const generalFailureMessage = 'General Failure ?!';
+const serverFailureMessage = 'Server Failure ?!';
+const cacheFailureMessage = 'Cache Failure ?!';
 
 class AlphabetCubit extends Cubit<AlphabetState> {
   AlphabetUseCases alphabetUseCases;
@@ -18,7 +19,7 @@ class AlphabetCubit extends Cubit<AlphabetState> {
     final failureOrAlphabet = alphabetUseCases.getAlphabet(index);
     failureOrAlphabet.fold(
         (l) => emit(AlphabetStateError(message: _mapFailureToMessage(l))),
-        (r) => emit(AlphabetStateLoaded(alphabet: r.character)));
+        (r) => emit(AlphabetStateLoaded(alphabet: r)));
   }
 
   void getListOfAlphabets() {

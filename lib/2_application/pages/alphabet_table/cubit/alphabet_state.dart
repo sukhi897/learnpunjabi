@@ -17,7 +17,7 @@ class AlphabetStateLoading extends AlphabetState {
 }
 
 class AlphabetStateLoaded extends AlphabetState {
-  final String alphabet;
+  final AlphabetEntity alphabet;
   const AlphabetStateLoaded({required this.alphabet});
   @override
   List<Object> get props => [alphabet];

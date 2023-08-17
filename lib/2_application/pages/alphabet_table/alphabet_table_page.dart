@@ -5,7 +5,6 @@ import 'package:learnpunjabi/2_application/pages/alphabet_table/widgets/alphabet
 import 'package:learnpunjabi/2_application/pages/alphabet_table/widgets/error_message.dart';
 import 'package:learnpunjabi/injection.dart';
 
-
 class AlphabetTablePageWrapperProvider extends StatelessWidget {
   const AlphabetTablePageWrapperProvider({super.key});
 
@@ -65,6 +64,7 @@ class AlphabetTablePage extends StatelessWidget {
                       } else if (state is AlphabetListStateLoaded) {
                         final alphabetList = state.alphabetList;
                         return AlphabetGridView(
+                          cntx: context,
                           alphabetList: alphabetList,
                         );
                       } else if (state is AlphabetListStateError) {

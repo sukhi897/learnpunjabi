@@ -2,13 +2,14 @@ import 'package:flutter/material.dart';
 import 'package:learnpunjabi/2_application/pages/alphabet_table/widgets/alphabet_popup.dart';
 import 'package:learnpunjabi/2_application/pages/alphabet_table/widgets/alphabet.dart';
 
-
 class AlphabetGridView extends StatelessWidget {
   const AlphabetGridView({
     Key? key,
+    required this.cntx,
     required this.alphabetList,
   }) : super(key: key);
 
+  final BuildContext cntx;
   final List<String> alphabetList;
 
   @override
@@ -29,11 +30,9 @@ class AlphabetGridView extends StatelessWidget {
               alphabet: alphabetList[index],
               onTap: () {
                 showDialog(
-                    context: context,
-                    builder: ((_) =>
-                        AlphabetPopup(
+                    context: cntx,
+                    builder: ((_) => AlphabetPopup(
                           index: index,
-                          character: alphabetList[index],
                         ))
                     // )
                     );
